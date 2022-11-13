@@ -1,6 +1,5 @@
 package unsw.calculator.model.tree;
 
-import unsw.calculator.model.EvaluatorVisitor;
 import unsw.calculator.model.Visitor;
 
 /*

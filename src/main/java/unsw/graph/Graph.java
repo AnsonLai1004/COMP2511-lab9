@@ -44,7 +44,15 @@ public class Graph<N extends Comparable<N>> {
      * @precondition node is in the graph
      */
     public List<N> getAdjacentNodes(N node) {
-        List<N> adjacencies = new ArrayList<N>(graph.get(node));
+        List<N> adjacencies = new ArrayList<N>(graph.get(node));                                          
         return adjacencies;
+    }
+
+    public BreadthFirstGraphIterator<N> breadthFirstIterator(N start) {
+        return new BreadthFirstGraphIterator<N>(this, start);
+    }
+
+    public DepthFirstGraphIterator<N> depthFirstIterator(N start) {
+        return new DepthFirstGraphIterator<N>(this, start);
     }
 }
