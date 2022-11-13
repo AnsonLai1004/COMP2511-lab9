@@ -12,12 +12,13 @@ public interface Visitor {
      * Visits a composite node in the expression tree.
      * @param node
      */
-    public abstract void visitBinaryOperatorNode(BinaryOperatorNode node);
-    
+    public abstract int visitBinaryOperatorNode(BinaryOperatorNode node);
+
     /**
      * Visits a compound node in the expression tree.
      * @param node
      */
-    public abstract void visitNumericNode(NumericNode node);
+    public abstract int visitNumericNode(NumericNode node);
+
 
 }

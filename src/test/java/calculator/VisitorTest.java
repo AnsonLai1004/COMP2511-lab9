@@ -20,7 +20,7 @@ import unsw.calculator.model.tree.TreeNode;
 
 public class VisitorTest {
 
-    /*private final ByteArrayOutputStream out = new ByteArrayOutputStream();
+    private final ByteArrayOutputStream out = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
 
     @BeforeEach
@@ -90,7 +90,5 @@ public class VisitorTest {
         EvaluatorVisitor evaluatorVisitor = new EvaluatorVisitor();
         node.accept(evaluatorVisitor);
         assertEquals(19, evaluatorVisitor.getValue());
-    }*/
-
-
+    }
 }

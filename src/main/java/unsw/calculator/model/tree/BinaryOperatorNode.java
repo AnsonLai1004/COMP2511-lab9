@@ -1,5 +1,8 @@
 package unsw.calculator.model.tree;
 
+import unsw.calculator.model.EvaluatorVisitor;
+import unsw.calculator.model.Visitor;
+
 /*
  * Tree node that contains two children
  */
@@ -25,22 +28,6 @@ public abstract class BinaryOperatorNode implements TreeNode  {
         return this.right;
     }
 
-    public void infixPrint()  {
-        System.out.print("(");
-
-        if (this.left != null) {
-            this.left.infixPrint();
-        }
-
-        System.out.print(" " + getLabel() + " ");
-
-        if (this.right != null) {
-            this.right.infixPrint();
-        }
-        
-        System.out.print(")");
-    }
-
     /**
      * Apply this operator (+,-,*,/ etc.) to the given operands
      */
@@ -50,5 +37,36 @@ public abstract class BinaryOperatorNode implements TreeNode  {
      * Returns a textual representation of the node.
      */
     public abstract String getLabel();
+
+    @Override
+    public void accept(Visitor v) {
+        v.visitBinaryOperatorNode(this);
+    }
+
+    public int acceptLeft(Visitor v) {
+        int value = 0;
+        if (this.left != null) {
+            if (this.left instanceof NumericNode) {
+                value = v.visitNumericNode((NumericNode) this.left);
+            } else {
+                value = v.visitBinaryOperatorNode((BinaryOperatorNode) this.left);
+            }
+        }
+        return value;
+    }
+
+    public int acceptRight(Visitor v) {
+        int value = 0;
+        if (this.right != null) {
+            if (this.right instanceof NumericNode) {
+                value = v.visitNumericNode((NumericNode) this.right);
+            } else {
+                value = v.visitBinaryOperatorNode((BinaryOperatorNode) this.right);
+            }
+        }
+        return value;
+    }
+
+    
 
 }

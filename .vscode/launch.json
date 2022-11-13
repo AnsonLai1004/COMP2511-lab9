@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "unsw.calculator.model.Main",
+            "projectName": "lab09"
+        },
+        {
+            "type": "java",
             "name": "Launch CheckerApplication",
             "request": "launch",
             "mainClass": "unsw.crown.CheckerApplication",

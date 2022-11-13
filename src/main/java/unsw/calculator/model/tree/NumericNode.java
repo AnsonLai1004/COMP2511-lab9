@@ -1,5 +1,7 @@
 package unsw.calculator.model.tree;
 
+import unsw.calculator.model.Visitor;
+
 public class NumericNode implements TreeNode {
 
     private int value;
@@ -17,8 +19,8 @@ public class NumericNode implements TreeNode {
     }
 
     @Override
-    public void infixPrint() {
-        System.out.print(getLabel());
+    public void accept(Visitor v) {
+        v.visitNumericNode(this);
     }
     
     

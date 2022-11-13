@@ -7,9 +7,9 @@ import unsw.calculator.model.tree.TreeNode;
  */
 public class Main {
     public static void main(String[] args)  {
-        Parser parser = new Parser("1 + 2 - 3 * 4 / 5"); // spaces are vital!!
-        TreeNode node = parser.parse();
-        node.infixPrint();
-        System.out.println();
+        Parser aparser = new Parser("1 + 2 - 3 * 10 / 5"); // spaces are vital!!
+	    TreeNode anode = aparser.parse();
+        Visitor infixVisitor = new InFixPrintVisitor();
+        anode.accept(infixVisitor);
     }
 }
